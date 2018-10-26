@@ -9,3 +9,10 @@
 ad.js
 TODO
 test.html
+
+
+/nbproject/private/
+/node_modules/
+.idea/
+/log/
+*.ini
