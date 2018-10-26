@@ -326,6 +326,43 @@ include_once 'controller/php/class/Select.class.php';
         </div>
     </div>
 
+    <div aria-hidden="true" class="modal fade" id="doHarvest" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Colheita</h4>
+                </div>
+                <form id="formDoHarvest">
+                    <input type="hidden" name="form" value="doHarvest"/>
+                    <input id="doHarvestIdCrop" type="hidden" name="id_crop" value="0"/>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Mão de Obra</label>
+                            <input class="form-control" name="labor" type="number" step="0.01" min="0.01" value="1029"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label>Maquinário</label>
+                            <input class="form-control" name="machines" type="number" step="0.01" min="0.01"
+                                   value="18271" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Transporte</label>
+                            <input class="form-control" name="transport" type="number" step="0.01" min="0.01"
+                                   value="18271" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fa fa-send"></i>&nbsp;Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div aria-hidden="true" class="modal fade" id="applyDefensives" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">

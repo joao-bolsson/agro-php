@@ -89,6 +89,26 @@ $(function () {
         });
     });
 
+    // **************************************************************************
+    //                              COLHEITA
+    // **************************************************************************
+
+    $('#doHarvest').on('hidden.bs.modal', function () {
+        document.getElementById('formDoHarvest').reset();
+    });
+
+    $("#formDoHarvest").submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('controller/php/forms/insert.php', data).done(function () {
+            alert("Dados salvos com sucesso!");
+        }).always(function () {
+            $('#doHarvest').modal('hide');
+            loadStartPage();
+        });
+    });
+
 });
 
 function loadStartPage() {
@@ -118,6 +138,11 @@ function doMaintenance(id_crop) {
 function applyDefensives(id_crop) {
     document.getElementById("applyDefensivesIdCrop").value = id_crop;
     $('#applyDefensives').modal();
+}
+
+function doHarvest(id_crop) {
+    document.getElementById("doHarvestIdCrop").value = id_crop;
+    $('#doHarvest').modal();
 }
 
 function abreModal(id) {
