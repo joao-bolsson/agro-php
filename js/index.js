@@ -50,6 +50,26 @@ $(function () {
     });
 
     // **************************************************************************
+    //                              MANUTENÇÃO
+    // **************************************************************************
+
+    $('#doMaintenance').on('hidden.bs.modal', function () {
+        document.getElementById('formDoMaintenance').reset();
+    });
+
+    $("#formDoMaintenance").submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('controller/php/forms/insert.php', data).done(function () {
+            alert("Dados salvos com sucesso!");
+        }).always(function () {
+            $('#startCrop').modal('hide');
+            loadStartPage();
+        });
+    });
+
+    // **************************************************************************
     //                              DEFENSIVOS
     // **************************************************************************
 
@@ -64,7 +84,7 @@ $(function () {
         $.post('controller/php/forms/insert.php', data).done(function () {
             alert("Dados salvos com sucesso!");
         }).always(function () {
-            $('#applyDefensives').modal('hide');
+            $('#doMaintenance').modal('hide');
             loadStartPage();
         });
     });
@@ -88,6 +108,11 @@ function loadStartPage() {
 function doImplementation(id_crop) {
     document.getElementById("doImplementationIdCrop").value = id_crop;
     $('#doImplementation').modal();
+}
+
+function doMaintenance(id_crop) {
+    document.getElementById("doMaintenanceIdCrop").value = id_crop;
+    $('#doMaintenance').modal();
 }
 
 function applyDefensives(id_crop) {
