@@ -556,7 +556,7 @@ include_once 'controller/php/class/Select.class.php';
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- jQuery 3 -->
-<!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
@@ -564,12 +564,12 @@ include_once 'controller/php/class/Select.class.php';
 <!-- FastClick -->
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="dist/js/app.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script>
     $(document).ready(function () {
-        $('.sidebar-menu').tree()
+        $('.sidebar-menu').tree();
     })
 </script>
 
