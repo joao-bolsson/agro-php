@@ -32,17 +32,34 @@ switch ($form) {
         $tbody = "";
         foreach ($crops as $crop) {
             if ($crop instanceof Crop) {
+                $status = $crop->getStatus();
+
                 $tbody .= "<tr>";
                 $tbody .= "<td>" . $crop->getId() . "</td>";
                 $tbody .= "<td>" . $crop->getCultureName() . "</td>";
                 $tbody .= "<td>" . $crop->getStart() . "</td>";
-                $tbody .= "<td>" . $crop->getStatus() . "/3</td>";
+                $tbody .= "<td>" . $status . "/3</td>";
 
                 $btnRel = new Button('', 'btn btn-default btn-sm', "rel(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Relatório', 'file-text');
 
-                $btnImpl = new Button('', 'btn btn-primary btn-sm', "doImplementation(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Implementação', 'pencil');
+                $btns = $btnRel;
 
-                $div = "<div class=\"btn-group\">" . $btnRel . $btnImpl . "</div>";
+                if ($status == 0) {
+                    $btns .= new Button('', 'btn btn-primary btn-sm', "doImplementation(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Implementação', 'pencil');
+                }
+
+                if ($status == 1) {
+                    // manutencao
+                    $btns .= new Button('', 'btn btn-primary btn-sm', "doMaintenance(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Manutenção', 'bitcoin');
+                    $btns .= new Button('', 'btn btn-primary btn-sm', "applyDefensives(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Aplicar Defensivos', 'circle');
+                }
+
+                if ($status == 2) {
+                    // colheita
+                    $btns .= new Button('', 'btn btn-primary btn-sm', "doHarvest(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Colheita', 'gear');
+                }
+
+                $div = "<div class=\"btn-group\">" . $btns . "</div>";
                 $tbody .= "<td>" . $div . "</td>";
             }
         }
