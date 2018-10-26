@@ -446,7 +446,7 @@ include_once 'controller/php/class/Select.class.php';
                                 aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Informações da Safra, LOTE: 01/2018</h4>
                 </div>
-                <div class="modal-body">
+                <div id="divReport" class="modal-body">
                     <h4>Implementação</h4>
                     <hr/>
                     <table class="table table-bordered table-striped">

@@ -174,6 +174,13 @@ function doHarvest(id_crop) {
 
 function showInfoCrop(id_crop) {
     $('#showInfoCrop').modal();
+
+    $.post('controller/php/forms/select.php', {
+        form: 'showInfoCrop',
+        id_crop: id_crop
+    }).done(function (report) {
+        document.getElementById('divReport').innerHTML = report;
+    });
 }
 
 function abreModal(id) {

@@ -161,6 +161,8 @@ class Insert {
         $builder->setValues([$id_crop, $labor, $machines, $transport]);
 
         Query::getInstance()->exe($builder->__toString());
+
+        // TODO: cadastrar valores finais de produção e total da venda na tabela safras
     }
 
     /**

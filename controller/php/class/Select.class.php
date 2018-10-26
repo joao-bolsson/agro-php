@@ -308,4 +308,116 @@ class Select {
         return $array;
     }
 
+
+    // **************************************************************************
+    //                              RELATÓRIOS
+    // **************************************************************************
+
+    /**
+     * Gets a report about costs with implementation crop.
+     *
+     * @param int $id_crop Crop id.
+     * @return Table Table with informations.
+     */
+    public static function getReportImplementation(int $id_crop): Table {
+        $table = new Table('', 'table table-bordered table-striped', ['Gasto', 'Valor'], true);
+
+        $query = Query::getInstance()->exe('SELECT mao_de_obra, maquinario, adubacao, semeadura FROM implantacao WHERE id_safra = ' . $id_crop);
+
+        if ($query->num_rows > 0) {
+            $obj = $query->fetch_object();
+
+            $row = new Row();
+            $row->addComponent(new Column("Mão de Obra"));
+            $row->addComponent(new Column($obj->mao_de_obra));
+
+            $table->addComponent($row);
+
+            $row = new Row();
+            $row->addComponent(new Column("Maquinário"));
+            $row->addComponent(new Column($obj->maquinario));
+
+            $table->addComponent($row);
+
+            $row = new Row();
+            $row->addComponent(new Column("Adubação"));
+            $row->addComponent(new Column($obj->adubacao));
+
+            $table->addComponent($row);
+
+            $row = new Row();
+            $row->addComponent(new Column("Semeadura"));
+            $row->addComponent(new Column($obj->semeadura));
+
+            $table->addComponent($row);
+        }
+        return $table;
+    }
+
+    /**
+     * Gets a report about costs with maintenance crop.
+     *
+     * @param int $id_crop Crop id.
+     * @return Table Table with informations.
+     */
+    public static function getReportMaintenance(int $id_crop): Table {
+        $table = new Table('', 'table table-bordered table-striped', ['Gasto', 'Valor'], true);
+
+        $query = Query::getInstance()->exe('SELECT mao_de_obra, maquinario FROM manutencao WHERE id_safra = ' . $id_crop);
+
+        if ($query->num_rows > 0) {
+            $obj = $query->fetch_object();
+
+            $row = new Row();
+            $row->addComponent(new Column("Mão de Obra"));
+            $row->addComponent(new Column($obj->mao_de_obra));
+
+            $table->addComponent($row);
+
+            $row = new Row();
+            $row->addComponent(new Column("Maquinário"));
+            $row->addComponent(new Column($obj->maquinario));
+
+            $table->addComponent($row);
+
+            // TODO: incluir gastos com defensivos
+        }
+        return $table;
+    }
+
+    /**
+     * Gets a report about costs with harvest crop.
+     *
+     * @param int $id_crop Crop id.
+     * @return Table Table with informations.
+     */
+    public static function getReportHarvest(int $id_crop): Table {
+        $table = new Table('', 'table table-bordered table-striped', ['Gasto', 'Valor'], true);
+
+        $query = Query::getInstance()->exe('SELECT mao_de_obra, maquinario, transporte FROM colheita WHERE id_safra = ' . $id_crop);
+
+        if ($query->num_rows > 0) {
+            $obj = $query->fetch_object();
+
+            $row = new Row();
+            $row->addComponent(new Column("Mão de Obra"));
+            $row->addComponent(new Column($obj->mao_de_obra));
+
+            $table->addComponent($row);
+
+            $row = new Row();
+            $row->addComponent(new Column("Maquinário"));
+            $row->addComponent(new Column($obj->maquinario));
+
+            $table->addComponent($row);
+
+            $row = new Row();
+            $row->addComponent(new Column("Transporte"));
+            $row->addComponent(new Column($obj->transporte));
+
+            $table->addComponent($row);
+        }
+        return $table;
+    }
+
 }

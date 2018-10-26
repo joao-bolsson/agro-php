@@ -113,6 +113,18 @@ switch ($form) {
         echo $opt;
         break;
 
+    case 'showInfoCrop':
+        $id_crop = filter_input(INPUT_POST, 'id_crop');
+
+        $reportImpl = "<h4>Implementação</h4><hr/>" . Select::getReportImplementation($id_crop);
+        $reportMaint = "<h4>Manutenção</h4><hr/>" . Select::getReportMaintenance($id_crop);
+        $reportHarv = "<h4>Colheita</h4><hr/>" . Select::getReportHarvest($id_crop);
+
+        echo $reportImpl . $reportMaint . $reportHarv;
+        // TODO: resultados
+//        $reportImpl = "<h4>Relatório</h4><hr/>" . Select::getReportImplementation($id_crop);
+        break;
+
     default:
         break;
 }
