@@ -168,7 +168,18 @@
           </div>
         </div>
         <div class="box-body">
-          Tabela de safras
+          <table id="tableCrops" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>#ID</th>
+              <th>Cultura</th>
+              <th>Data de Início</th>
+              <th>Status</th>
+              <th>Opções</th>
+            </tr>
+            </thead>
+            <tbody id="tbodyCrops"></tbody>
+          </table>
         </div>
       </div>
       <!-- /.box -->
@@ -188,8 +199,10 @@
 </div>
 <!-- ./wrapper -->
 
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
@@ -205,5 +218,7 @@
         $('.sidebar-menu').tree()
     })
 </script>
+
+<script src="js/index.js"></script>
 </body>
 </html>
