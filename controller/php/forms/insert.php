@@ -64,8 +64,7 @@ switch ($form) {
 
     case 'doImplementation':
         $id_crop = filter_input(INPUT_POST, 'id_crop');
-//         $labor = filter_input(INPUT_POST, 'labor');
-        $labor = 0;
+        $labor = filter_input(INPUT_POST, 'labor');
         $machines = filter_input(INPUT_POST, 'machines');
         $fert = filter_input(INPUT_POST, 'fertilizing');
         $seeding = filter_input(INPUT_POST, 'seeding');

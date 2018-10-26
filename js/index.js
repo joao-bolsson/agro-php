@@ -5,6 +5,27 @@
  */
 
 $(function () {
+    loadStartPage();
+
+    $('#doImplementation').on('hidden.bs.modal', function () {
+        document.getElementById("doImplementationIdCrop").value = 0;
+        document.getElementById('formDoImplementation').reset();
+    });
+
+    $("#formDoImplementation").submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('controller/php/forms/insert.php', data).done(function () {
+            alert("Dados salvos com sucesso!");
+        }).always(function () {
+            $('#doImplementation').modal('hide');
+            loadStartPage();
+        });
+    });
+});
+
+function loadStartPage() {
     $.post('controller/php/forms/select.php', {
         form: 'getCropsByUser',
         id_user: 1
@@ -16,4 +37,9 @@ $(function () {
             location.reload();
         }
     });
-});
+}
+
+function doImplementation(id_crop) {
+    document.getElementById("doImplementationIdCrop").value = id_crop;
+    $('#doImplementation').modal();
+}

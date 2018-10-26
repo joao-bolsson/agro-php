@@ -196,6 +196,44 @@
     <strong>Copyright &copy; 2018 <a href="https://github.com/joao-bolsson/">AgroPop</a>.</strong> Todos os direitos reservados
   </footer>
 
+    <div aria-hidden="true" class="modal fade" id="doImplementation" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Implementação</h4>
+                </div>
+                <form id="formDoImplementation">
+                    <input type="hidden" name="form" value="doImplementation"/>
+                    <input id="doImplementationIdCrop" type="hidden" name="id_crop" value="0"/>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Mão de Obra</label>
+                            <input class="form-control" name="labor" type="number" step="0.01" min="0.01" value="1029" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Maquinário</label>
+                            <input class="form-control" name="machines" type="number" step="0.01" min="0.01" value="18271" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fertilizantes</label>
+                            <input class="form-control" name="fertilizing" type="number" step="0.01" min="0.01" value="18271" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Semeadura</label>
+                            <input class="form-control" name="seeding" type="number" step="0.01" min="0.01" value="18271" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fa fa-send"></i>&nbsp;Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- ./wrapper -->
 
