@@ -260,6 +260,27 @@ class Select {
     }
 
     /**
+     * Product types used in system.
+     *
+     * @return array With ProductType objects.
+     */
+    public static function getProdutTypes(): array {
+        $builder = new SQLBuilder(SQLBuilder::$SELECT);
+        $builder->setTables(['tipo_prod']);
+        $builder->setColumns(['id', 'nome_tipo']);
+        $query = Query::getInstance()->exe($builder->__toString());
+
+        $types = [];
+        $i = 0;
+        if ($query->num_rows > 0) {
+            while ($obj = $query->fetch_object()) {
+                $types[$i++] = new ProductType($obj->id, $obj->nome_tipo);
+            }
+        }
+        return $types;
+    }
+
+    /**
      * Gets all defensives used in the system.
      *
      * @param int $id_user User id

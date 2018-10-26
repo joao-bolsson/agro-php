@@ -116,7 +116,8 @@ switch ($form) {
         break;
 
     case 'addProductItem':
-        $id_user = filter_input(INPUT_POST, 'id_crop'); // pode pegar pela sessão
+//        $id_user = filter_input(INPUT_POST, 'id_user'); // pode pegar pela sessão
+        $id_user = 1;
         $id_type = filter_input(INPUT_POST, 'id_type');
         $type = Select::getProductTypeName($id_type);
         $cod = filter_input(INPUT_POST, 'cod');

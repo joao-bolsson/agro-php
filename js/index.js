@@ -73,6 +73,14 @@ $(function () {
     //                              DEFENSIVOS
     // **************************************************************************
 
+    $('#applyDefensives').on('shown.bs.modal', function () {
+        $.post('controller/php/forms/select.php', {
+            form: 'getDefensives'
+        }).done(function (options) {
+            document.getElementById('defensives').innerHTML = options;
+        });
+    });
+
     $('#applyDefensives').on('hidden.bs.modal', function () {
         document.getElementById('formApplyDefensives').reset();
     });
@@ -106,6 +114,25 @@ $(function () {
         }).always(function () {
             $('#doHarvest').modal('hide');
             loadStartPage();
+        });
+    });
+
+    // **************************************************************************
+    //                              ESTOQUE
+    // **************************************************************************
+
+    $('#addStock').on('hidden.bs.modal', function () {
+        document.getElementById('formAddStock').reset();
+    });
+
+    $("#formAddStock").submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('controller/php/forms/insert.php', data).done(function () {
+            alert("Dados salvos com sucesso!");
+        }).always(function () {
+            $('#addStock').modal('hide');
         });
     });
 

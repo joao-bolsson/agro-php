@@ -100,6 +100,19 @@ switch ($form) {
         echo json_encode(Select::getStock($id_user));
         break;
 
+    case 'getDefensives':
+//        $id_user = filter_input(INPUT_POST, 'id_user');
+        $id_user = 1;
+        $types = Select::getDefensives($id_user);
+        $opt = "";
+        foreach ($types as $type) {
+            if ($type instanceof Product) {
+                $opt .= "<option value=\"" . $type->getId() . "\">" . $type->getDescription() . "</option>";
+            }
+        }
+        echo $opt;
+        break;
+
     default:
         break;
 }

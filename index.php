@@ -126,6 +126,11 @@ include_once 'controller/php/class/Select.class.php';
                         <i class="fa fa-adjust"></i> <span>Análise de Solo</span>
                     </a>
                 </li>
+                <li>
+                    <a href="javascript:abreModal('#addStock');">
+                        <i class="fa fa-cart-plus"></i> <span>Adicionar Estoque</span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -274,6 +279,60 @@ include_once 'controller/php/class/Select.class.php';
         </div>
     </div>
 
+    <div aria-hidden="true" class="modal fade" id="addStock" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Adicionar Produto ao Estoque</h4>
+                </div>
+                <form id="formAddStock">
+                    <input type="hidden" name="form" value="addProductItem"/>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Tipo de Produto</label>
+                            <select class="form-control" name="id_type" required>
+                                <?php
+                                $types = Select::getProdutTypes();
+                                foreach ($types as $type) {
+                                    if ($type instanceof ProductType) {
+                                        echo "<option value=\"" . $type->getId() . "\">" . $type->getName() . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Código</label>
+                            <input class="form-control" name="cod" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descrição</label>
+                            <input class="form-control" name="descr" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Unidade</label>
+                            <input class="form-control" name="unit" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantidade</label>
+                            <input class="form-control" name="qtd" type="number" step="1" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Valor Unitário</label>
+                            <input class="form-control" name="vl_unit" type="number" step="0.01" min="0.01" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fa fa-send"></i>&nbsp;Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div aria-hidden="true" class="modal fade" id="doMaintenance" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -357,16 +416,7 @@ include_once 'controller/php/class/Select.class.php';
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Defensivo</label>
-                            <select class="form-control" name="id_defensive" required>
-                                <?php
-                                $types = Select::getDefensives(1);
-                                foreach ($types as $type) {
-                                    if ($type instanceof Product) {
-                                        echo "<option value=\"" . $type->getId() . "\">" . $type->getDescription() . "</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
+                            <select id="defensives" class="form-control" name="id_defensive" required></select>
                         </div>
                         <div class="form-group">
                             <label>Aplicações</label>
