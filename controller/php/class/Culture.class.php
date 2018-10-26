@@ -51,4 +51,20 @@ class Culture implements JsonSerializable {
     public function jsonSerialize() {
         return get_object_vars($this);
     }
+
+    /**
+     * @return int
+     */
+    public function getId(): int {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string {
+        return $this->name;
+    }
+
+
 }

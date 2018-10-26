@@ -54,8 +54,9 @@ switch ($form) {
         /**
          * The date must be in format d/m/Y
          */
-        $dt_start = filter_input(INPUT_POST, 'dt_start');
+//        $dt_start = filter_input(INPUT_POST, 'dt_start');
 
+        $dt_start = date('Y-m-d');
         /**
          * Return the crop id on the database.
          */
