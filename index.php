@@ -8,7 +8,7 @@ include_once 'controller/php/class/Select.class.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AgroPop | Início</title>
+    <title>AgroPRO | Início</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -44,7 +44,7 @@ include_once 'controller/php/class/Select.class.php';
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Agro</b>POP</span>
+            <span class="logo-lg"><b>Agro</b>PRO</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -104,22 +104,11 @@ include_once 'controller/php/class/Select.class.php';
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-            </form>
-            <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
                     <a href="index.php">
-                        <i class="fa fa-calendar"></i> <span>Início</span>
+                        <i class="fa fa-home"></i> <span>Início</span>
                     </a>
                 </li>
                 <li>
@@ -128,13 +117,13 @@ include_once 'controller/php/class/Select.class.php';
                     </a>
                 </li>
                 <li>
-                    <a href="../calendar.html">
-                        <i class="fa fa-calendar"></i> <span>Rastreabilidade</span>
+                    <a href="index.php">
+                        <i class="fa fa-bar-chart"></i> <span>Rastreabilidade</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../calendar.html">
-                        <i class="fa fa-calendar"></i> <span>Análise de Solo</span>
+                    <a href="index.php">
+                        <i class="fa fa-adjust"></i> <span>Análise de Solo</span>
                     </a>
                 </li>
             </ul>
@@ -164,15 +153,6 @@ include_once 'controller/php/class/Select.class.php';
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Safras</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
-                                title="Remove">
-                            <i class="fa fa-times"></i></button>
-                    </div>
                 </div>
                 <div class="box-body">
                     <table id="tableCrops" class="table table-bordered table-striped">
@@ -200,7 +180,7 @@ include_once 'controller/php/class/Select.class.php';
         <div class="pull-right hidden-xs">
             <b>Versão</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2018 <a href="https://github.com/joao-bolsson/">AgroPop</a>.</strong> Todos os direitos
+        <strong>Copyright &copy; 2018 <a href="https://github.com/joao-bolsson/">AgroPRO</a>.</strong> Todos os direitos
         reservados
     </footer>
 
@@ -404,6 +384,118 @@ include_once 'controller/php/class/Select.class.php';
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" class="modal fade" id="showInfoCrop" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Informações da Safra, LOTE: 01/2018</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Implementação</h4>
+                    <hr/>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Gasto</th>
+                            <th>Valor</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbodyImpl">
+                        <tr>
+                            <td>Mão de Obra</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Maquinário</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Fertilizantes</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Semeadura</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h4>Manutenção</h4>
+                    <hr/>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Gasto</th>
+                            <th>Valor</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbodyImpl">
+                        <tr>
+                            <td>Mão de Obra</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Maquinário</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Defensivos</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h4>Colheita</h4>
+                    <hr/>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Gasto</th>
+                            <th>Valor</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbodyImpl">
+                        <tr>
+                            <td>Mão de Obra</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Maquinário</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Transporte</td>
+                            <td>R$ 2819.78</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h4>Relatório</h4>
+                    <hr/>
+                    <table class="table table-bordered table-striped">
+                        <tbody id="tbodyImpl">
+                        <tr>
+                            <td>Total da Implantação</td>
+                            <td style="color: red">R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Total da Manutenção</td>
+                            <td style="color: red">R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Total da Colheita</td>
+                            <td style="color: green">R$ 2819.78</td>
+                        </tr>
+                        <tr>
+                            <td>Lucro</td>
+                            <td style="color: green">R$ 2819.78</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

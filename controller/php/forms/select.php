@@ -40,7 +40,7 @@ switch ($form) {
                 $tbody .= "<td>" . $crop->getStart() . "</td>";
                 $tbody .= "<td>" . $status . "/3</td>";
 
-                $btnRel = new Button('', 'btn btn-default btn-sm', "rel(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Relatório', 'file-text');
+                $btnRel = new Button('', 'btn btn-default btn-sm', "showInfoCrop(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Relatório', 'file-text');
 
                 $btns = $btnRel;
 

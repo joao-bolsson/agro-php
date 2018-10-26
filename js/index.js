@@ -145,6 +145,10 @@ function doHarvest(id_crop) {
     $('#doHarvest').modal();
 }
 
+function showInfoCrop(id_crop) {
+    $('#showInfoCrop').modal();
+}
+
 function abreModal(id) {
     $(id).modal();
 }
