@@ -57,6 +57,11 @@ class Crop implements JsonSerializable {
     private $culture_type;
 
     /**
+     * @var int
+     */
+    private $status;
+
+    /**
      * Crop constructor.
      *
      * @param int $id Crop id.
@@ -73,7 +78,23 @@ class Crop implements JsonSerializable {
         $this->start = $start;
         $this->culture_name = $culture_name;
         $this->culture_type = $culture_type;
+        $this->status = -1;
     }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus(int $status) {
+        $this->status = $status;
+    }
+
 
     /**
      * @return int

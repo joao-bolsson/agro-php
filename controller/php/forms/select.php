@@ -36,13 +36,13 @@ switch ($form) {
                 $tbody .= "<td>" . $crop->getId() . "</td>";
                 $tbody .= "<td>" . $crop->getCultureName() . "</td>";
                 $tbody .= "<td>" . $crop->getStart() . "</td>";
-                $tbody .= "<td>1/3</td>";
+                $tbody .= "<td>" . $crop->getStatus() . "/3</td>";
 
                 $btnRel = new Button('', 'btn btn-default btn-sm', "rel(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Relatório', 'file-text');
 
                 $btnImpl = new Button('', 'btn btn-primary btn-sm', "doImplementation(" . $crop->getId() . ")", "data-toggle = \"tooltip\"", 'Implementação', 'pencil');
 
-                $div = "<div class=\"btn-group\">" .$btnRel . $btnImpl . "</div>";
+                $div = "<div class=\"btn-group\">" . $btnRel . $btnImpl . "</div>";
                 $tbody .= "<td>" . $div . "</td>";
             }
         }

@@ -31,17 +31,32 @@ class Select {
         $builder->setColumns(['safras.id', 'safras.id_usuario', 'safras.id_cultura', 'cultura.nome AS cultura', 'tipo_cultura.nome AS tipo_cultura', "DATE_FORMAT(safras.inicio, '%d/%m/%Y') AS inicio", "DATE_FORMAT(safras.fim, '%d/%m/%Y') AS fim", 'safras.producao', 'safras.saldo', 'safras.total_venda']);
         $builder->setWhere('safras.id_usuario = ' . $id_user . ' AND cultura.id = safras.id_cultura AND cultura.id_tipo = tipo_cultura.id');
 
-        Logger::info("Query: " . $builder->__toString());
-
         $query = Query::getInstance()->exe($builder->__toString());
 
         $array = [];
         $i = 0;
         if ($query->num_rows > 0) {
-            Logger::info("retornou linhas");
             while ($obj = $query->fetch_object()) {
-                Logger::info("usuario: " . $obj->id_usuario . " data inicio: " . $obj->inicio);
+                $query_impl = Query::getInstance()->exe("SELECT id_safra FROM implantacao WHERE id_safra = " . $obj->id);
+                $query_manut = Query::getInstance()->exe("SELECT id_safra FROM manutencao WHERE id_safra = " . $obj->id);
+                $query_col = Query::getInstance()->exe("SELECT id_safra FROM colheita WHERE id_safra = " . $obj->id);
+
+                $status = 0;
+
+                if ($query_impl->num_rows > 0) {
+                    $status++;
+                }
+
+                if ($query_manut->num_rows > 0) {
+                    $status++;
+                }
+
+                if ($query_col->num_rows > 0) {
+                    $status++;
+                }
+
                 $crop = new Crop($obj->id, $obj->id_usuario, $obj->id_cultura, $obj->inicio, $obj->cultura, $obj->tipo_cultura);
+                $crop->setStatus($status);
 
                 $array[$i++] = $crop;
             }
