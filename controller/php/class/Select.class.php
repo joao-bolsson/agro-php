@@ -259,4 +259,32 @@ class Select {
         return "";
     }
 
+    /**
+     * Gets all defensives used in the system.
+     *
+     * @param int $id_user User id
+     * @return array Array with Product objects that contains informations about each culture.
+     */
+    public static function getDefensives(int $id_user): array {
+        $builder = new SQLBuilder(SQLBuilder::$SELECT);
+        $builder->setTables(['estoque']);
+        $builder->setColumns(['id', 'descricao']);
+        $builder->setWhere('id_usuario = ' . $id_user . ' AND (id_tipo = 1 OR id_tipo = 2 OR id_tipo = 3)');
+
+        $query = Query::getInstance()->exe($builder->__toString());
+
+        $array = [];
+        $i = 0;
+        if ($query->num_rows > 0) {
+            while ($obj = $query->fetch_object()) {
+                $prod = new Product($id_user, 1, "", "", $obj->descricao, "", 0, 0, 0);
+                $prod->setId($obj->id);
+                $array[$i++] = $prod;
+
+            }
+        }
+
+        return $array;
+    }
+
 }

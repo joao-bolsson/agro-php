@@ -294,6 +294,51 @@ include_once 'controller/php/class/Select.class.php';
         </div>
     </div>
 
+    <div aria-hidden="true" class="modal fade" id="applyDefensives" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Aplicar Defensivos</h4>
+                </div>
+                <form id="formApplyDefensives">
+                    <input type="hidden" name="form" value="applyDefensives"/>
+                    <input id="applyDefensivesIdCrop" type="hidden" name="id_crop" value="1"/>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Defensivo</label>
+                            <select class="form-control" name="id_defensive" required>
+                                <?php
+                                $types = Select::getDefensives(1);
+                                foreach ($types as $type) {
+                                    if ($type instanceof Product) {
+                                        echo "<option value=\"" . $type->getId() . "\">" . $type->getDescription() . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Aplicações</label>
+                            <input class="form-control" name="aplications" type="number" step="1" min="1"
+                                   value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Valor</label>
+                            <input class="form-control" name="value" type="number" step="0.01" min="0.01"
+                                   value="19287" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fa fa-send"></i>&nbsp;Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- ./wrapper -->
 

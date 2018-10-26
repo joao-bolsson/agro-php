@@ -83,16 +83,12 @@ switch ($form) {
 
     case 'applyDefensives':
         $id_crop = filter_input(INPUT_POST, 'id_crop');
-        $id_def = filter_input(INPUT_POST, 'id_defensives', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
-        $apli = filter_input(INPUT_POST, 'aplications', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
-        $values = filter_input(INPUT_POST, 'values', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+        $id_def = filter_input(INPUT_POST, 'id_defensive');
+        $apli = filter_input(INPUT_POST, 'aplications');
+        $values = filter_input(INPUT_POST, 'value');
 
         $defensives = [];
-        $size = count($id_def);
-        for ($i = 0; $i < $size; $i++) {
-            $defensives[$i] = new Defensive($id_def[$i], $apli[$i], $values[$i]);
-            $i++;
-        }
+        $defensives[0] = new Defensive($id_def, $apli, $values);
 
         Insert::applyDefensives($id_crop, $defensives);
         break;

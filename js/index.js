@@ -48,6 +48,27 @@ $(function () {
             loadStartPage();
         });
     });
+
+    // **************************************************************************
+    //                              DEFENSIVOS
+    // **************************************************************************
+
+    $('#applyDefensives').on('hidden.bs.modal', function () {
+        document.getElementById('formApplyDefensives').reset();
+    });
+
+    $("#formApplyDefensives").submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('controller/php/forms/insert.php', data).done(function () {
+            alert("Dados salvos com sucesso!");
+        }).always(function () {
+            $('#applyDefensives').modal('hide');
+            loadStartPage();
+        });
+    });
+
 });
 
 function loadStartPage() {
@@ -67,6 +88,11 @@ function loadStartPage() {
 function doImplementation(id_crop) {
     document.getElementById("doImplementationIdCrop").value = id_crop;
     $('#doImplementation').modal();
+}
+
+function applyDefensives(id_crop) {
+    document.getElementById("applyDefensivesIdCrop").value = id_crop;
+    $('#applyDefensives').modal();
 }
 
 function abreModal(id) {
