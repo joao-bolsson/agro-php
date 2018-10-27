@@ -53,7 +53,7 @@ switch ($form) {
         break;
 
     case 'startCrop':
-        $id_user = filter_input(INPUT_POST, 'id_user');
+        $id_user = $_SESSION['id'];
         $id_cult = filter_input(INPUT_POST, 'id_cult');
         /**
          * The date must be in format d/m/Y
@@ -89,10 +89,12 @@ switch ($form) {
         $id_crop = filter_input(INPUT_POST, 'id_crop');
         $id_def = filter_input(INPUT_POST, 'id_defensive');
         $apli = filter_input(INPUT_POST, 'aplications');
-        $values = filter_input(INPUT_POST, 'value');
 
+        $vl_unit = Select::getDefensiveUnitValue($id_def);
+
+        $value = $vl_unit * $apli;
         $defensives = [];
-        $defensives[0] = new Defensive($id_def, $apli, $values);
+        $defensives[0] = new Defensive($id_def, $apli, $value);
 
         Insert::applyDefensives($id_crop, $defensives);
         break;
@@ -120,8 +122,7 @@ switch ($form) {
         break;
 
     case 'addProductItem':
-//        $id_user = filter_input(INPUT_POST, 'id_user'); // pode pegar pela sessão
-        $id_user = 1;
+        $id_user = $_SESSION['id'];
         $id_type = filter_input(INPUT_POST, 'id_type');
         $type = Select::getProductTypeName($id_type);
         $cod = filter_input(INPUT_POST, 'cod');

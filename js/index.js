@@ -64,7 +64,7 @@ $(function () {
         $.post('controller/php/forms/insert.php', data).done(function () {
             alert("Dados salvos com sucesso!");
         }).always(function () {
-            $('#startCrop').modal('hide');
+            $('#doMaintenance').modal('hide');
             loadStartPage();
         });
     });
@@ -92,7 +92,7 @@ $(function () {
         $.post('controller/php/forms/insert.php', data).done(function () {
             alert("Dados salvos com sucesso!");
         }).always(function () {
-            $('#doMaintenance').modal('hide');
+            $('#applyDefensives').modal('hide');
             loadStartPage();
         });
     });

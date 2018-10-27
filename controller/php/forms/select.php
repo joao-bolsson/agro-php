@@ -24,8 +24,7 @@ if (!empty($filter)) {
 switch ($form) {
 
     case 'getCropsByUser':
-        // can get this field by session
-        $id_user = filter_input(INPUT_POST, 'id_user');
+        $id_user = $_SESSION['id'];
 
         $crops = Select::getCropsByUser($id_user);
 
@@ -94,15 +93,13 @@ switch ($form) {
         break;
 
     case 'getStock':
-        // can get this field by session
-        $id_user = filter_input(INPUT_POST, 'id_user');
+        $id_user = $_SESSION['id'];
 
         echo json_encode(Select::getStock($id_user));
         break;
 
     case 'getDefensives':
-//        $id_user = filter_input(INPUT_POST, 'id_user');
-        $id_user = 1;
+        $id_user = $_SESSION['id'];
         $types = Select::getDefensives($id_user);
         $opt = "";
         foreach ($types as $type) {

@@ -135,6 +135,16 @@ class Select {
         return null;
     }
 
+    public static function getDefensiveUnitValue(int $id_def):float {
+        $query = Query::getInstance()->exe("SELECT vl_unitario FROM estoque WHERE id = " . $id_def);
+
+        if ($query->num_rows > 0) {
+            $obj = $query->fetch_object();
+            return floatval($obj->vl_unitario);
+        }
+        return 0;
+    }
+
     // **************************************************************************
     //                              COLHEITA
     // **************************************************************************

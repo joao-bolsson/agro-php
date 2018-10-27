@@ -12,9 +12,7 @@ pass = joao
 database = agro
 ```
 
-- O próximo passo é criar um banco de dados MySQL chamado "agro" e importar a estrutura do arquivo `controller/estrutura.sql`
-
-Existem alguns dados fictícios em `dados.sql`  que pode ser importado também
+- O próximo passo é criar um banco de dados MySQL chamado "agro" e importar a estrutura do arquivo `agro.sql`
 
 
 

@@ -415,7 +415,7 @@ include_once 'controller/php/class/Select.class.php';
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Aplicar Defensivos</h4>
+                    <h4 class="modal-title">Aplicar Defensivo</h4>
                 </div>
                 <form id="formApplyDefensives">
                     <input type="hidden" name="form" value="applyDefensives"/>
@@ -429,11 +429,6 @@ include_once 'controller/php/class/Select.class.php';
                             <label>Aplicações</label>
                             <input class="form-control" name="aplications" type="number" step="1" min="1"
                                    value="1" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Valor</label>
-                            <input class="form-control" name="value" type="number" step="0.01" min="0.01"
-                                   value="19287" required>
                         </div>
                     </div>
                     <div class="modal-footer">
