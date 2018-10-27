@@ -69,7 +69,7 @@ include_once 'controller/php/class/Select.class.php';
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">João Bolsson</span>
+                            <span class="hidden-xs"><?= $_SESSION['nome'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -77,17 +77,17 @@ include_once 'controller/php/class/Select.class.php';
                                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    João Bolsson - Produtor
+                                    <?= $_SESSION['nome'] ?> - Produtor
                                     <small>Membro desde Out. 2018</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="out.php" class="btn btn-default btn-flat">Sair</a>
                                 </div>
                             </li>
                         </ul>
@@ -107,7 +107,7 @@ include_once 'controller/php/class/Select.class.php';
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>João Bolsson</p>
+                    <p><?= $_SESSION['nome'] ?></p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
