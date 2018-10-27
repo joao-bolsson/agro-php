@@ -60,7 +60,7 @@ if (isset($_SESSION['email'])) {
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <!--                        <a href="javascript:abreModal('#esqueceuSenha');">Esqueceu a senha?</a><br>-->
+                        <a href="javascript:abreModal('#esqueceuSenha');">Esqueceu a senha?</a><br>
                         <a href="register.php">Registre-se</a>
                     </div>
                     <div class="col-xs-4">
@@ -85,11 +85,8 @@ if (isset($_SESSION['email'])) {
                 <h4 class="modal-title">Esqueceu a senha?</h4>
             </div>
             <form id="formReset">
-                <input type="hidden" name="form" value="resetSenha">
+                <input type="hidden" name="form" value="resetPass">
                 <div class="modal-body">
-                    <div id="loaderFormReset" class="overlay" style="display: none;">
-                        <i class="fa fa-refresh fa-spin"></i>
-                    </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>

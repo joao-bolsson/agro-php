@@ -18,4 +18,21 @@ $(function () {
             }
         });
     });
+
+    $("#formReset").submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('controller/php/forms/update.php', data).done(function (response) {
+            if (response) {
+                alert("Senha resetada, sua nova senha é: " + response);
+            } else {
+                alert("Ocorreu um erro no servidor. Contate o administrador.");
+            }
+        });
+    });
 });
+
+function abreModal(id) {
+    $(id).modal();
+}

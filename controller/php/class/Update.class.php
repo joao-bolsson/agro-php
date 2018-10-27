@@ -9,7 +9,7 @@
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
-require_once '../../defines.php';
+require_once __DIR__ . '/../../defines.php';
 
 spl_autoload_register(function (string $class_name) {
     include_once $class_name . '.class.php';
@@ -37,6 +37,27 @@ class Update {
         $builder->setWhere('id = ' . $id);
 
         Query::getInstance()->exe($builder->__toString());
+    }
+
+    /**
+     * Resets user password.
+     *
+     * @param string $email User e-mail.
+     * @return string New random password.
+     */
+    public static function resetPass(string $email): string {
+        $p = Util::randPassword();
+        $pass = crypt($p, SALT);
+
+        $builder = new SQLBuilder(SQLBuilder::$UPDATE);
+        $builder->setTables(['usuario']);
+        $builder->setColumns(['senha']);
+        $builder->setValues([$pass]);
+        $builder->setWhere("email= '" . $email . "'");
+
+        Query::getInstance()->exe($builder->__toString());
+
+        return $p;
     }
 
 }
