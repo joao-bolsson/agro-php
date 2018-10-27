@@ -1,7 +1,7 @@
 /**
  *
  * @author João Bolsson (joaovictorbolsson@gmail.com)
- * @since 2017, 29 May.
+ * @since 2018, Oct 26.
  */
 
 $(function () {

@@ -25,9 +25,9 @@ class Insert {
      *
      * @param string $name User name.
      * @param string $email User e-mail.
-     * @return int User id.
+     * @return string User password.
      */
-    public static function addUser(string $name, string $email): int {
+    public static function addUser(string $name, string $email): string {
         $name = Query::getInstance()->real_escape_string($name);
         $email = Query::getInstance()->real_escape_string($email);
 
@@ -41,7 +41,7 @@ class Insert {
 
         Query::getInstance()->exe($builder->__toString());
 
-        return Query::getInstance()->getInsertId();
+        return $p;
     }
 
     /**

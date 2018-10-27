@@ -32,7 +32,7 @@ switch ($form) {
             break;
         }
 
-        $id = Insert::addUser($name, $email);
+        $pass = Insert::addUser($name, $email);
 
         $farmer = !is_null(filter_input(INPUT_POST, 'farmer'));
         $agr = !is_null(filter_input(INPUT_POST, 'agr'));
@@ -45,7 +45,11 @@ switch ($form) {
             $farmer = true;
         }
 
+        $id = Query::getInstance()->getInsertId();
+
         Insert::addPermissions($id, $farmer, $agr, $coop);
+
+        echo $pass;
         break;
 
     case 'startCrop':
