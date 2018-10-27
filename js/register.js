@@ -5,7 +5,7 @@
  */
 
 $(function () {
-    $("#formCadUser").submit(function (event) {
+    $("#formAddUser").submit(function (event) {
         event.preventDefault();
         var data = $(this).serialize();
 

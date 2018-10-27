@@ -1,5 +1,12 @@
 <?php
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+
 session_start();
+
+if (!isset($_SESSION['email'])) {
+    header('Location: login.php');
+}
 
 include_once 'controller/php/class/Select.class.php';
 ?>
@@ -565,13 +572,6 @@ include_once 'controller/php/class/Select.class.php';
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.sidebar-menu').tree();
-    })
-</script>
 
 <script src="js/index.js"></script>
 </body>

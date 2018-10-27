@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    header('Location: index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,5 +123,7 @@
         });
     });
 </script>
+
+<script src="js/login.js"></script>
 </body>
 </html>

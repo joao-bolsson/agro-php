@@ -9,6 +9,8 @@
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
+session_start();
+
 spl_autoload_register(function (string $class_name) {
     include_once $class_name . '.class.php';
 });

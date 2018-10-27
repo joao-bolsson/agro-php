@@ -37,7 +37,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">Registrar Novo Usuário</p>
 
-        <form id="formCadUser">
+        <form id="formAddUser">
             <input type="hidden" name="form" value="addUser"/>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Nome" name="name" required>
