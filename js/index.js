@@ -78,6 +78,7 @@ $(function () {
             form: 'getDefensives'
         }).done(function (options) {
             document.getElementById('defensives').innerHTML = options;
+            updateTotDefensives();
         });
     });
 
@@ -180,6 +181,19 @@ function showInfoCrop(id_crop) {
         id_crop: id_crop
     }).done(function (report) {
         document.getElementById('divReport').innerHTML = report;
+    });
+}
+
+function updateTotDefensives() {
+    var id_def = document.getElementById('defensives').value;
+    var aplications = document.getElementById('aplications').value;
+
+    $.post('controller/php/forms/select.php', {
+        form: 'updateTotDefensives',
+        id_def: id_def,
+        apl: aplications
+    }).done(function (response) {
+        document.getElementById('totDef').innerHTML = response;
     });
 }
 

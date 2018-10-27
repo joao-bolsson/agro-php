@@ -122,6 +122,13 @@ switch ($form) {
 //        $reportImpl = "<h4>Relatório</h4><hr/>" . Select::getReportImplementation($id_crop);
         break;
 
+    case 'updateTotDefensives':
+        $id_def= filter_input(INPUT_POST, 'id_def');
+        $apli = filter_input(INPUT_POST, 'apl');
+
+        echo Select::getDefensiveUnitValue($id_def) * $apli;
+        break;
+
     default:
         break;
 }

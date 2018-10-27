@@ -423,13 +423,15 @@ include_once 'controller/php/class/Select.class.php';
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Defensivo</label>
-                            <select id="defensives" class="form-control" name="id_defensive" required></select>
+                            <select id="defensives" class="form-control" name="id_defensive" required onchange="updateTotDefensives();"></select>
                         </div>
                         <div class="form-group">
                             <label>Aplicações</label>
-                            <input class="form-control" name="aplications" type="number" step="1" min="1"
-                                   value="1" required>
+                            <input id="aplications" class="form-control" name="aplications" type="number" step="1" min="1"
+                                   value="1" required onchange="updateTotDefensives();">
                         </div>
+
+                        <p style="font-weight: bold">R$ <span id="totDef">0.00</span></p>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fa fa-send"></i>&nbsp;Enviar
